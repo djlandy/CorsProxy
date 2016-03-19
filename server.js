@@ -36,7 +36,7 @@ var http = require('http'),
 	server = http.createServer(function (req, res) {
 		var d = domain.create();
 		d.on('error', function (e){
-			res.statusCode = 500;
+			res.statusCode = 200;
 			if (e.message != 'Large File' && (debug && e.message == 'Parse Error')){
 				console.log(errorString(chalk.bold('Error: ') + (debug ? e.stack : e.message)));
 				res.write('error');

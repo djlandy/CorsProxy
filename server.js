@@ -43,6 +43,9 @@ var http = require('http'),
 				res.write(e.message);
 				res.end('Error: ' + ((e instanceof TypeError) ? "make sure your URL is correct" : e.message));
 			}
+			res.setHeader('content-type', 'text/html');
+			res.write('error');
+			res.write(e.message);
 			res.end();
 		});
 		d.add(req);

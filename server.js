@@ -36,16 +36,16 @@ var http = require('http'),
 	server = http.createServer(function (req, res) {
 		var d = domain.create();
 		d.on('error', function (e){
-			res.statusCode = 200;
+			res.statusCode = 500;
 			if (e.message != 'Large File' && (debug && e.message == 'Parse Error')){
 				console.log(errorString(chalk.bold('Error: ') + (debug ? e.stack : e.message)));
-				res.write('error');
-				res.write(e.message);
+				//res.write('error');
+				//res.write(e.message);
 				res.end('Error: ' + ((e instanceof TypeError) ? "make sure your URL is correct" : e.message));
 			}
-			res.setHeader('content-type', 'text/html');
-			res.write('error');
-			res.write(e.message);
+			//res.setHeader('content-type', 'text/html');
+			//res.write('error');
+			//res.write(e.message);
 			res.end();
 		});
 		d.add(req);

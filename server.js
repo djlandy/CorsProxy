@@ -8,7 +8,7 @@ var http = require('http'),
 	chalk = require('chalk');
 
 
-	var index = fsRead('index.html'),
+	var index = fsRead('cors_proxy.html'),
 	indexGzip = gzip(index),
 	favicon = fsRead('favicon.ico'),
 	faviconGzip = gzip(favicon),

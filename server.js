@@ -39,6 +39,8 @@ var http = require('http'),
 			res.statusCode = 500;
 			if (e.message != 'Large File' && (debug && e.message == 'Parse Error')){
 				console.log(errorString(chalk.bold('Error: ') + (debug ? e.stack : e.message)));
+				res.write('error');
+				res.write(e.message);
 				res.end('Error: ' + ((e instanceof TypeError) ? "make sure your URL is correct" : e.message));
 			}
 			res.end();
